@@ -121,7 +121,8 @@ function M.render_search_ui()
     table.insert(details_ui, { { "Replace: ", state.user_config.highlight.ui } })
     local path_message = "Path:"
     if state.cwd then
-        path_message = path_message .. string.format("   cwd=%s", state.cwd)
+        local cwd_display = string.sub(state.cwd,string.len(vim.fn.getcwd()))
+        path_message = path_message .. string.format("   cwd=%s", cwd_display)
     end
     table.insert(details_ui, { { path_message, state.user_config.highlight.ui } })
 
